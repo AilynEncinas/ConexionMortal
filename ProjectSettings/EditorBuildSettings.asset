@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nivel1.unity
+    path: Assets/Scenes/Practica.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Nivel2.unity
+    path: Assets/Scenes/Nivel1.unity
     guid: b28cec1fe7dd32d4d81df0acbf26f512
+  - enabled: 1
+    path: Assets/Scenes/Casa-lvl1.unity
+    guid: 153c47d21142a224f8ce0d879e88ed20
   m_configObjects: {}
