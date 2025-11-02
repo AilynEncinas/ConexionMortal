@@ -1,0 +1,3 @@
+repository "2D-juego/2D-juego@4673935582294@cloud"
+  path "/"
+    smartbranch "/main"
