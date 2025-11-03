@@ -3,13 +3,37 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 5f;
-    public float lifetime = 3f;
-    private Rigidbody2D rb;
+    private Transform target;
 
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * speed; // por ejemplo, que caiga hacia abajo
-        Destroy(gameObject, lifetime);
+        // Busca al jugador por su tag
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            target = player.transform;
+            // Calcula la dirección hacia el jugador
+            Vector2 direction = (target.position - transform.position).normalized;
+            GetComponent<Rigidbody2D>().velocity = direction * speed;
+        }
+
+        // Destruye el proyectil después de unos segundos (por seguridad)
+        Destroy(gameObject, 5f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            // Si golpea al jugador, le quita vida
+            collision.GetComponent<PlayerHealth>().TakeDamage(1);
+            Destroy(gameObject);
+        }
+        else if (collision.CompareTag("Ground"))
+        {
+            // Si toca el suelo u otro objeto, se destruye
+            Destroy(gameObject);
+        }
     }
 }

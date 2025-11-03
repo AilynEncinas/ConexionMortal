@@ -27,8 +27,8 @@ public class PlayerWallJump : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         movementScript = GetComponent<PlayerMovement>();
 
-        if (movementScript == null)
-            Debug.LogWarning("PlayerWallJump: no se encontró PlayerMovement en el mismo GameObject.");
+        //if (movementScript == null)
+        //    Debug.LogWarning("PlayerWallJump: no se encontró PlayerMovement en el mismo GameObject.");
 
         wallJumpDirection.Normalize();
     }
@@ -82,12 +82,12 @@ public class PlayerWallJump : MonoBehaviour
         {
             WallJump();
         }
-        if (isTouchingWall)
-            Debug.Log("✅ Tocando pared");
-        else
-            Debug.Log("❌ No tocando pared");
+        //if (isTouchingWall)
+        //    //Debug.Log("✅ Tocando pared");
+        //else
+        //    //Debug.Log("❌ No tocando pared");
 
-        Debug.Log($"TouchingWall: {isTouchingWall}, WallHold: {isWallHolding}, VelocityY: {rb.velocity.y}");
+        //Debug.Log($"TouchingWall: {isTouchingWall}, WallHold: {isWallHolding}, VelocityY: {rb.velocity.y}");
 
     }
 
